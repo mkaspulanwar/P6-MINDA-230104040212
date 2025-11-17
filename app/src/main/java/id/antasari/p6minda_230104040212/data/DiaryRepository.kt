@@ -26,4 +26,7 @@ class DiaryRepository(private val dao: DiaryDao) {
 
     // Fungsi untuk mengedit (update) entri, langsung memanggil DAO
     suspend fun edit(entry: DiaryEntry) = dao.update(entry)
+
+    // READ satu entry by id (untuk Detail & Edit)
+    suspend fun getById(id: Int): DiaryEntry? = dao.getById(id)
 }

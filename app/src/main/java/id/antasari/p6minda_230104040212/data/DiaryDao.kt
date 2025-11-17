@@ -16,4 +16,7 @@ interface DiaryDao {
 
     @Query("SELECT * FROM diary_entries ORDER BY timestamp DESC")
     suspend fun getAll(): List<DiaryEntry>
+
+    @Query("SELECT * FROM diary_entries WHERE id = :entryId LIMIT 1")
+    suspend fun getById(entryId: Int): DiaryEntry?
 }
