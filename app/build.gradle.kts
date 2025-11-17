@@ -2,32 +2,25 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
-    id("com.google.devtools.ksp") // Hapus 'kotlin-kapt', ganti dengan KSP
+    id("com.google.devtools.ksp") // versi di-declare di root (apply false)
 }
 
 android {
-    // Namespace sudah disesuaikan dengan ID Anda
     namespace = "id.antasari.p6minda_230104040212"
     compileSdk = 34
 
     defaultConfig {
-        // ApplicationId sudah disesuaikan dengan ID Anda
         applicationId = "id.antasari.p6minda_230104040212"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        vectorDrawables { useSupportLibrary = true }
     }
 
     buildTypes {
-        debug {
-            isMinifyEnabled = false
-        }
+        debug { isMinifyEnabled = false }
         release {
             isMinifyEnabled = false
             // proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -38,7 +31,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-        isCoreLibraryDesugaringEnabled = true // <-- BARIS BARU PENTING
+        isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
@@ -49,9 +42,7 @@ android {
         )
     }
 
-    buildFeatures {
-        compose = true
-    }
+    buildFeatures { compose = true }
 }
 
 dependencies {
@@ -85,13 +76,13 @@ dependencies {
     val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion") // <-- DIGANTI DARI KAPT KE KSP
+    ksp("androidx.room:room-compiler:$roomVersion")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
     // Desugaring (java.time, streams, dsb)
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4") // <-- BARIS BARU PENTING
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
     // Test
     testImplementation("junit:junit:4.13.2")
