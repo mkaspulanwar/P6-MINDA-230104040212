@@ -1,81 +1,97 @@
+// Package sudah disesuaikan dengan ID Anda
 package id.antasari.p6minda_230104040212
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import id.antasari.p6minda_230104040212.ui.NoteDetailScreen
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import id.antasari.p6minda_230104040212.data.UserPrefsRepository
+import id.antasari.p6minda_230104040212.ui.BottomNavBar
+import id.antasari.p6minda_230104040212.ui.navigation.AppNavHost
+import id.antasari.p6minda_230104040212.ui.navigation.Routes
 import kotlinx.coroutines.launch
-import id.antasari.p6minda_230104040212.data.MindaDatabase
-import id.antasari.p6minda_230104040212.data.DiaryRepository
-import androidx.compose.ui.platform.LocalContext
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            // Gunakan tema langit (biru muda & putih)
             MindaTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // TEST ZONE
-                    // Kita butuh 1 id entry nyata dari DB.
-                    // Strategi: ambil entry pertama dari DB dan pakai id-nya.
-                    val context = LocalContext.current
+                    // --- Repo & State (DataStore) ---
+                    val userPrefs = remember { UserPrefsRepository(this@MainActivity) }
                     val scope = rememberCoroutineScope()
 
-                    var firstId by remember { mutableStateOf<Int?>(null) }
+                    // Ambil data dari DataStore
+                    val storedName by userPrefs.userNameFlow.collectAsState(initial = null)
+                    val onboardDone by userPrefs.onboardingCompletedFlow.collectAsState(initial = false)
 
-                    LaunchedEffect(true) {
-                        withContext(Dispatchers.IO) {
-                            val db = MindaDatabase.getInstance(context)
-                            val repo = DiaryRepository(db.diaryDao())
+                    // --- Navigasi ---
+                    val navController = rememberNavController()
+                    val currentRoute by navController.currentBackStackEntryAsState()
+                    val route = currentRoute?.destination?.route
 
-                            val all = repo.allEntries()
-                            if (all.isNotEmpty()) {
-                                firstId = all.first().id // ambil entry terbaru
-                            } else {
-                                // Kalau kosong banget, seed satu agar bisa dites
-                                repo.addEntry(
-                                    title = "Test detail view",
-                                    content = "This is a sample diary entry for detail screen.\nHow do I feel today?",
-                                    mood = "😊 Calm"
-                                )
-                                val again = repo.allEntries()
-                                firstId = again.first().id
+                    // Scaffold utama
+                    Scaffold(
+                        bottomBar = {
+                            if (shouldShowBottomBar(route)) {
+                                BottomNavBar(navController = navController)
                             }
-                        }
-                    }
-
-                    if (firstId != null) {
-                        NoteDetailScreen(
-                            entryId = firstId!!,
-                            onBack = {
-                                // sementara: tidak ada nav, jadi no-op
-                            },
-                            onDeleted = {
-                                // sementara: tidak ada nav, bisa kosong
-                            },
-                            onEdit = { id ->
-                                // nanti akan buka mode edit
+                        },
+                        floatingActionButton = {
+                            if (shouldShowBottomBar(route)) {
+                                FloatingActionButton(
+                                    onClick = { navController.navigate(Routes.NEW) },
+                                    modifier = Modifier.offset(y = 40.dp),
+                                    containerColor = MaterialTheme.colorScheme.primary, // Warna biru muda dari tema
+                                    contentColor = Color.White
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Add,
+                                        contentDescription = "Tambah catatan baru"
+                                    )
+                                }
                             }
-                        )
-                    } else {
-                        // fallback simple text
-                        androidx.compose.material3.Text(
-                            "Loading entry...",
-                            style = MaterialTheme.typography.bodyMedium
+                        },
+                        floatingActionButtonPosition = FabPosition.Center
+                    ) { innerPadding ->
+                        // Host Navigasi
+                        AppNavHost(
+                            navController = navController,
+                            storedName = storedName,
+                            hasCompletedOnboarding = onboardDone,
+                            onSaveUserName = { name ->
+                                scope.launch { userPrefs.saveUserName(name) }
+                            },
+                            onSetOnboardingCompleted = {
+                                scope.launch { userPrefs.setOnboardingCompleted(true) }
+                            },
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(innerPadding)
                         )
                     }
                 }
             }
         }
+    }
+
+    /** Bottom bar hanya tampil di 4 tab utama */
+    private fun shouldShowBottomBar(route: String?): Boolean {
+        return route in setOf(Routes.HOME, Routes.CALENDAR, Routes.INSIGHTS, Routes.SETTINGS)
     }
 }

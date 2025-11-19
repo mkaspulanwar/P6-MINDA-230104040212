@@ -1,3 +1,4 @@
+// Package sudah disesuaikan dengan ID Anda
 package id.antasari.p6minda_230104040212.ui
 
 import androidx.compose.foundation.Image
