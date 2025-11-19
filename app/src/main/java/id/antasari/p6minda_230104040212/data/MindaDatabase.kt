@@ -1,3 +1,4 @@
+// Package sudah disesuaikan dengan ID Anda
 package id.antasari.p6minda_230104040212.data
 
 import android.content.Context
@@ -12,24 +13,23 @@ import androidx.room.RoomDatabase
 )
 abstract class MindaDatabase : RoomDatabase() {
 
-    // Fungsi abstrak untuk mendapatkan DAO (Data Access Object)
     abstract fun diaryDao(): DiaryDao
 
     companion object {
         @Volatile
         private var INSTANCE: MindaDatabase? = null
 
-        // Fungsi untuk mendapatkan instance database (Singleton)
         fun getInstance(context: Context): MindaDatabase {
             return INSTANCE ?: synchronized(this) {
-                // Buat instance database jika INSTANCE masih null
-                INSTANCE ?: Room.databaseBuilder(
+                val instance = Room.databaseBuilder(
                     context.applicationContext,
                     MindaDatabase::class.java,
                     "minda.db"
                 )
+                    .fallbackToDestructiveMigration() // <- TAMBAHAN BARU
                     .build()
-                    .also { db -> INSTANCE = db } // Tetapkan instance yang baru dibuat ke INSTANCE
+                INSTANCE = instance
+                instance
             }
         }
     }
