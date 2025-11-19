@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
 // Import data (package sudah disesuaikan)
 import id.antasari.p6minda_230104040212.data.DiaryEntry
 import id.antasari.p6minda_230104040212.data.DiaryRepository
