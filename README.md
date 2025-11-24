@@ -23,6 +23,15 @@ Project ini merupakan implementasi dari **Modul Praktikum Mobile Programming Wee
 
 ---
 
+## Tim Developer
+
+| Peran | Nama | NIM | Profil GitHub |
+| :--- | :--- | :--- | :--- |
+| **Pengembang Proyek** | M. Kaspul Anwar | 230104040212 | [![](https://img.shields.io/badge/GitHub-M.KaspulAnwar-181717?style=flat&logo=github)](https://github.com/mkaspulanwar) |
+| **Dosen Pengampu** | Muhayat, M. IT | - | [![](https://img.shields.io/badge/GitHub-Muhayat,M.IT-181717?style=flat&logo=github)](https://github.com/muhayat-lab) |
+
+---
+
 ## Detail Teknis Implementasi
 
 Aplikasi ini mengadopsi arsitektur **MVVM** (Model-View-ViewModel) dan menggunakan **Repository Pattern** untuk memisahkan sumber data dari logika UI, memastikan kode yang lebih bersih dan teruji.
