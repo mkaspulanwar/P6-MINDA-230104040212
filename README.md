@@ -151,4 +151,27 @@ app/
     git clone https://github.com/mkaspulanwar/P6-MINDA-230104040212.git
     ```
 2.  **Buka di Android Studio:** Gunakan versi Android Studio terbaru yang mendukung Jetpack Compose dan Kotlin.
-3.  **Build dan Run:** Jalankan proyek pada emulator atau perangkat fisik Android (Minimum API Level 24+). 
+3.  **Build dan Run:** Jalankan proyek pada emulator atau perangkat fisik Android (Minimum API Level 24+).
+
+## Screenshots Hasil
+
+Berikut adalah 10 tampilan kunci dari aplikasi Minda, diatur dalam format *grid* visual. Semua file gambar berada di folder `/bukti`.
+
+### Grid 1: Peluncuran & Onboarding Awal
+
+| Ikon Catatan | Splash Screen | Onboarding (1) |
+| :---: | :---: | :---: |
+| **![Ikon Aplikasi Catatan](https://github.com/Theseadev/Minda_Application/blob/master/ScreenApp/Icon.png?raw=true)** | **![Splash Screen](ScreenApp/SplashScreen.png)** | **![Onboarding 1](ScreenApp/Onboarding1.png)** |
+| **Onboarding (2)** | **Onboarding (3)** | **Onboarding (4)** |
+| **![Onboarding 2](ScreenApp/Onboarding2.png)** | **![Onboarding 3](ScreenApp/Onboarding3.png)** | **![Onboarding 4](ScreenApp/Onboarding4.png)** |
+
+### Grid 2: Fitur Inti & Pengaturan
+
+| Home Screen | Calendar | New Entry |
+| :---: | :---: | :---: |
+| **![Home Screen](ScreenApp/Home.png)** | **![Calendar Screen](ScreenApp/Calendar.png)** | **![New Entry Screen](ScreenApp/NewEntry.png)** |
+| **Edit Entry** | **Insights** | **Settings** |
+| **![Edit Entry Screen](ScreenApp/EditEntry.png)** | **![Insights Screen](ScreenApp/Insight.png)** | **![Settings Screen](ScreenApp/Setting.png)** |
+
+---
+
