@@ -1,5 +1,4 @@
-cat << 'EOF' > CONTRIBUTING.md
-# 👋 Pedoman Kontribusi untuk Proyek Minda
+# Pedoman Kontribusi untuk Proyek Minda
 
 Terima kasih atas minat Anda untuk berkontribusi pada proyek **Minda - Aplikasi Jurnal Harian**! Kontribusi Anda, baik dalam bentuk fitur baru, perbaikan *bug*, maupun dokumentasi, sangat dihargai.
 
@@ -7,7 +6,7 @@ Pedoman ini akan memandu Anda melalui proses kontribusi yang efisien.
 
 ---
 
-## 🐞 Melaporkan Bug dan Isu
+## Melaporkan Bug dan Isu
 
 Sebelum mengajukan *pull request* (PR), harap laporkan isu atau *bug* yang Anda temukan:
 
@@ -17,7 +16,7 @@ Sebelum mengajukan *pull request* (PR), harap laporkan isu atau *bug* yang Anda 
 
 ---
 
-## 🚀 Mengajukan Perubahan (Pull Request)
+## Mengajukan Perubahan (Pull Request)
 
 Untuk berkontribusi kode:
 
@@ -38,14 +37,14 @@ Untuk berkontribusi kode:
     ```
 7.  Buka *fork* Anda di GitHub dan buat **Pull Request (PR)** ke *branch* utama (`main` atau `master`) dari repository ini.
 
-### 📝 Catatan PR
+### Catatan PR
 
 * Pastikan PR Anda merujuk pada **Issues** yang terkait (jika ada).
 * Jelaskan secara singkat apa yang diubah dan mengapa.
 
 ---
 
-## 💻 Standar Kode
+## Standar Kode
 
 * Gunakan **Kotlin** dan ikuti panduan gaya kode standar Android (Kotlin Style Guide).
 * Gunakan **Jetpack Compose** untuk UI.
@@ -53,4 +52,3 @@ Untuk berkontribusi kode:
 * Tambahkan komentar pada kode yang kompleks.
 
 Terima kasih atas kontribusi Anda!
-EOF
