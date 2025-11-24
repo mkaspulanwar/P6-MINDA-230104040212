@@ -1,5 +1,4 @@
-cat << 'EOF' > README.md
-# 📝 Minda - Aplikasi Jurnal Harian (Mobile Programming Week 6)
+# Minda: Aplikasi Jurnal Harian Mobile Programming Week #6
 
 <p align="center">
   <img src="https://img.shields.io/badge/Kotlin-Compose-blueviolet?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin Badge">
@@ -11,7 +10,7 @@ cat << 'EOF' > README.md
 
 ---
 
-## 🌟 Deskripsi Project
+## Deskripsi Project
 
 Project ini merupakan implementasi dari **Modul Praktikum Mobile Programming Week 6** yang berfokus pada penggunaan **Database Lokal (SQLite - Room ORM)** dan **Jetpack Compose** untuk membangun aplikasi jurnal harian bernama **"Minda"**.
 
@@ -24,7 +23,7 @@ Project ini merupakan implementasi dari **Modul Praktikum Mobile Programming Wee
 
 ---
 
-## 🛠️ Detail Teknis Implementasi
+## Detail Teknis Implementasi
 
 Aplikasi ini mengadopsi arsitektur **MVVM** (Model-View-ViewModel) dan menggunakan **Repository Pattern** untuk memisahkan sumber data dari logika UI, memastikan kode yang lebih bersih dan teruji.
 
@@ -51,7 +50,7 @@ Aplikasi ini mengadopsi arsitektur **MVVM** (Model-View-ViewModel) dan menggunak
 
 ---
 
-## 📦 Dependensi Kunci
+## Dependensi Kunci
 
 Berikut adalah dependensi utama yang digunakan dalam project ini:
 
@@ -66,7 +65,7 @@ Berikut adalah dependensi utama yang digunakan dalam project ini:
 
 ---
 
-## 🚀 Fitur Utama Aplikasi
+## Fitur Utama Aplikasi
 
 1.  **Alur Onboarding Multi-Step:** Panduan pengguna saat pertama kali membuka aplikasi:
     * *Welcome Screen*.
@@ -82,7 +81,7 @@ Berikut adalah dependensi utama yang digunakan dalam project ini:
 
 ---
 
-## 📷 Tampilan Aplikasi
+## Tampilan Aplikasi
 
 Berikut adalah urutan tampilan selama alur *onboarding* dan layar utama:
 
@@ -93,19 +92,54 @@ Berikut adalah urutan tampilan selama alur *onboarding* dan layar utama:
 
 ---
 
-## 👨‍💻 Kontributor
+## 📂 Struktur Direktori Project
 
-* **Dosen Pengampu:** Muhayat, M.IT
-* **Project Developer:** [Ganti dengan Nama Anda]
+Struktur direktori utama (`app/src/main/java/com/yourpackage/minda`) diorganisir berdasarkan fungsionalitas dan arsitektur MVVM:
 
----
+```bash
+app/
+└── src/
+    └── main/
+        ├── AndroidManifest.xml
+        ├── java/
+        │   └── id/antasari/p6minda_230104040079/
+        │       ├── MainActivity.kt                // Scaffold, FAB, BottomNav, NavHost
+        │       ├── MindaTheme.kt                  // Tema dasar Material 3
+        │       ├── data/
+        │       │   ├── DiaryEntry.kt              // Entity / tabel Room
+        │       │   ├── DiaryDao.kt                // Interface CRUD Room
+        │       │   ├── MindaDatabase.kt           // Definisi Database Room
+        │       │   ├── DiaryRepository.kt         // Abstraksi akses data
+        │       │   └── UserPrefsRepository.kt     // DataStore Preferences
+        │       ├── ui/
+        │       │   ├── BottomNav.kt               // Bottom Navigation Bar kustom
+        │       │   ├── ExtraScreens.kt            // InsightsScreen, SettingsScreen
+        │       │   ├── HomeScreen.kt              // Daftar catatan + Search + Banner
+        │       │   ├── NewEntryScreen.kt          // Form tambah catatan
+        │       │   ├── EditEntryScreen.kt         // Form edit catatan
+        │       │   ├── NoteDetailScreen.kt        // Layar detail catatan
+        │       │   ├── OnboardingScreens.kt       // 4 layar onboarding
+        │       │   ├── calendar/
+        │       │   │   ├── CalendarScreen.kt      // Tampilan kalender grid
+        │       │   │   └── CalendarViewModel.kt   // Logika kalender dan data Flow
+        │       │   └── navigation/
+        │       │       ├── AppNavHost.kt          // Logika navigasi utama
+        │       │       └── Routes.kt              // Konstanta rute
+        │       └── util/
+        │           └── DateFormatter.kt           // Format timestamp
+        └── res/
+            ├── drawable/
+            │   └── banner_diary.jpg               // Banner Home & Onboarding
+            ├── mipmap/                            // Ikon launcher
+            └── xml/
+                └── backup_rules.xml               // Exclude DataStore dari auto-backup
+```
 
-## 💡 Cara Menjalankan Project
+## Cara Menjalankan Project
 
 1.  **Clone Repository:**
     ```bash
-    git clone [URL_REPOSITORY_ANDA]
+    git clone https://github.com/mkaspulanwar/P6-MINDA-230104040212.git
     ```
 2.  **Buka di Android Studio:** Gunakan versi Android Studio terbaru yang mendukung Jetpack Compose dan Kotlin.
-3.  **Build dan Run:** Jalankan proyek pada emulator atau perangkat fisik Android (Minimum API Level 24+).
-EOF
+3.  **Build dan Run:** Jalankan proyek pada emulator atau perangkat fisik Android (Minimum API Level 24+). 
