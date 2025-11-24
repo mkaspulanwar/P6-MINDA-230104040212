@@ -157,21 +157,15 @@ app/
 
 Berikut adalah 10 tampilan kunci dari aplikasi Minda, diatur dalam format *grid* visual. Semua file gambar berada di folder `/bukti`.
 
-### Grid 1: Peluncuran & Onboarding Awal
-
-| Ikon Catatan | Splash Screen | Onboarding (1) |
+| Onboarding 1: Welcome! | Onboarding 2: Your Name? | Onboarding 3: HelloScreen! |
 | :---: | :---: | :---: |
-| **![Ikon Aplikasi Catatan](https://github.com/Theseadev/Minda_Application/blob/master/ScreenApp/Icon.png?raw=true)** | **![Splash Screen](ScreenApp/SplashScreen.png)** | **![Onboarding 1](ScreenApp/Onboarding1.png)** |
-| **Onboarding (2)** | **Onboarding (3)** | **Onboarding (4)** |
-| **![Onboarding 2](ScreenApp/Onboarding2.png)** | **![Onboarding 3](ScreenApp/Onboarding3.png)** | **![Onboarding 4](ScreenApp/Onboarding4.png)** |
-
-### Grid 2: Fitur Inti & Pengaturan
-
-| Home Screen | Calendar | New Entry |
-| :---: | :---: | :---: |
-| **![Home Screen](ScreenApp/Home.png)** | **![Calendar Screen](ScreenApp/Calendar.png)** | **![New Entry Screen](ScreenApp/NewEntry.png)** |
-| **Edit Entry** | **Insights** | **Settings** |
-| **![Edit Entry Screen](ScreenApp/EditEntry.png)** | **![Insights Screen](ScreenApp/Insight.png)** | **![Settings Screen](ScreenApp/Setting.png)** |
+| <img src="bukti/Onboarding_1_Wecome_to_My_Minda.jpg" width="250"> | <img src="bukti/Onboarding_2_Whats_your_Name.jpg" width="250"> | <img src="bukti/Onboarding_3_HelloScreen_Name.jpg" width="250"> |
+| Onboarding 4: Start! | Home Screen | Calendar Screen |
+| <img src="bukti/Onboarding_4_Start_Journaling.jpg" width="250"> | <img src="bukti/HomeScreen_HomeScreen_Minda.jpg" width="250"> | <img src="bukti/CalendarScreen_CalendarScreen_Minda.jpg" width="250"> |
+| New Entry Screen | Edit Entry Screen | Insights Screen |
+| <img src="bukti/NewEntryScreen_NewEntryScreen_Minda.jpg" width="250"> | <img src="bukti/EditEntryScreen_EditEntryScreen_Minda.jpg" width="250"> | <img src="bukti/InsightsScreen_InsightsScreen_Minda.jpg" width="250"> |
+| Settings Screen | | |
+| <img src="bukti/SettingsScreen_SettingsScreen_Minda.jpg" width="250"> | | |
 
 ---
 
